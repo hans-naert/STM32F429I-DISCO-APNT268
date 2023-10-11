@@ -1,6 +1,9 @@
 
 #include "cmsis_os2.h"
 #include "GUI.h"
+#include "DIALOG.h"
+
+extern WM_HWIN CreateLogVIEWER(void);
 
 /*----------------------------------------------------------------------------
  *      GUIThread: GUI Thread for Single-Task Execution Model
@@ -34,12 +37,14 @@ __NO_RETURN static void GUIThread (void *argument) {
 
   /* Add GUI setup code here */
 
-	GUI_DispString("Hello Vives");
+	//GUI_DispString("Hello Vives");
+	WM_HWIN hWin = CreateLogVIEWER();
   while (1) {
     
     /* All GUI related activities might only be called from here */
 
     GUI_Exec();         /* Execute all GUI jobs ... Return 0 if nothing was done. */
     GUI_X_ExecIdle();   /* Nothing left to do for the moment ... Idle processing */
+		GUI_TOUCH_Exec();
   }
 }

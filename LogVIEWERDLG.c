@@ -29,12 +29,13 @@
 *
 **********************************************************************
 */
-#define ID_FRAMEWIN_0 (GUI_ID_USER + 0x00)
-#define ID_BUTTON_0 (GUI_ID_USER + 0x01)
-#define ID_MULTIEDIT_0 (GUI_ID_USER + 0x02)
+#define ID_FRAMEWIN_0            (GUI_ID_USER + 0x00)
+#define ID_BUTTON_0            (GUI_ID_USER + 0x01)
+#define ID_MULTIEDIT_0           (GUI_ID_USER + 0x02)
 
 
 // USER START (Optionally insert additional defines)
+extern char fbuf[200]; 
 // USER END
 
 /*********************************************************************
@@ -53,7 +54,7 @@
 */
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { FRAMEWIN_CreateIndirect, "LogVIEWER", ID_FRAMEWIN_0, 0, 0, 240, 320, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "Update", ID_BUTTON_0, 80, 257, 80, 20, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "Update", ID_BUTTON_0, 36, 244, 150, 50, 0, 0x0, 0 },
   { MULTIEDIT_CreateIndirect, "Multiedit", ID_MULTIEDIT_0, 30, 12, 170, 227, 0, 0x0, 0 },
   // USER START (Optionally insert additional widgets)
   // USER END
@@ -98,6 +99,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
+			     hItem = WM_GetDialogItem(pMsg->hWin, ID_MULTIEDIT_0); 
+			     MULTIEDIT_SetText(hItem, fbuf);
         // USER END
         break;
       case WM_NOTIFICATION_RELEASED:

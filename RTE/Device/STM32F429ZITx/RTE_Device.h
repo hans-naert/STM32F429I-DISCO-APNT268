@@ -1153,10 +1153,10 @@
 
 // <e> I2C3 (Inter-integrated Circuit Interface 3) [Driver_I2C3]
 // <i> Configuration settings for Driver_I2C3 in component ::CMSIS Driver:I2C
-#define RTE_I2C3                        0
+#define RTE_I2C3                        1
 
 //   <o> I2C3_SCL Pin <0=>PH7 <1=>PA8
-#define RTE_I2C3_SCL_PORT_ID            0
+#define RTE_I2C3_SCL_PORT_ID            1
 #if    (RTE_I2C3_SCL_PORT_ID == 0)
 #define RTE_I2C3_SCL_PORT               GPIOH
 #define RTE_I2C3_SCL_BIT                7
@@ -1168,7 +1168,7 @@
 #endif
 
 //   <o> I2C3_SDA Pin <0=>PH8 <1=>PC9 <2=>PB4 <3=>PB8
-#define RTE_I2C3_SDA_PORT_ID            0
+#define RTE_I2C3_SDA_PORT_ID            1
 #if    (RTE_I2C3_SDA_PORT_ID == 0)
 #define RTE_I2C3_SDA_PORT               GPIOH
 #define RTE_I2C3_SDA_BIT                8
