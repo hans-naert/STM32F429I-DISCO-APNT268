@@ -7,7 +7,7 @@
 /*----- One-Shoot Timer Example -----*/
 osTimerId_t tim_id1;                            // timer id
 static uint32_t exec1;                          // argument for the timer call back function
-static uint32_t timer_cnt=0;
+uint32_t timer_cnt=0;
 
 
 // One-Shoot Timer Function
@@ -49,10 +49,10 @@ int Init_Timers (void) {
   tim_id2 = osTimerNew((osTimerFunc_t)&Timer2_Callback, osTimerPeriodic, &exec2, NULL);
   if (tim_id2 != NULL) {  // Periodic timer created
     // start timer with periodic 1000ms interval
-    status = osTimerStart(tim_id2, 1000U);            
+    /*status = osTimerStart(tim_id2, 1000U);            
     if (status != osOK) {
       return -1;
-    }
+    }*/
   }
   return NULL;
 }
