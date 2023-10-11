@@ -16,15 +16,22 @@
  */
 #define CMSIS_device_header "stm32f4xx.h"
 
-/* ARM::CMSIS:RTOS2:Keil RTX5:Library:5.5.4 */
+/* ARM::CMSIS:RTOS2:Keil RTX5:Source:5.5.4 */
 #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
         #define RTE_CMSIS_RTOS2_RTX5            /* CMSIS-RTOS2 Keil RTX5 */
+        #define RTE_CMSIS_RTOS2_RTX5_SOURCE     /* CMSIS-RTOS2 Keil RTX5 Source */
 /* Keil.ARM Compiler::Compiler:Event Recorder:DAP:1.5.1 */
 #define RTE_Compiler_EventRecorder
           #define RTE_Compiler_EventRecorder_DAP
 /* Keil.ARM Compiler::Compiler:I/O:File:File System:1.2.0 */
 #define RTE_Compiler_IO_File            /* Compiler I/O: File */
           #define RTE_Compiler_IO_File_FS         /* Compiler I/O: File (File System) */
+/* Keil.ARM Compiler::Compiler:I/O:STDIN:User:1.2.0 */
+#define RTE_Compiler_IO_STDIN           /* Compiler I/O: STDIN */
+          #define RTE_Compiler_IO_STDIN_User      /* Compiler I/O: STDIN User */
+/* Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0 */
+#define RTE_Compiler_IO_STDOUT          /* Compiler I/O: STDOUT */
+          #define RTE_Compiler_IO_STDOUT_User     /* Compiler I/O: STDOUT User */
 /* Keil.MDK-Plus::File System:CORE:LFN Debug:6.15.3 */
 #define RTE_FileSystem_Core             /* File System Core */
           #define RTE_FileSystem_LFN              /* File System with Long Filename support */
@@ -57,6 +64,17 @@
         #define RTE_Drivers_SPI4                /* Driver SPI4 */
         #define RTE_Drivers_SPI5                /* Driver SPI5 */
         #define RTE_Drivers_SPI6                /* Driver SPI6 */
+/* Keil::CMSIS Driver:USART:2.16 */
+#define RTE_Drivers_USART1              /* Driver USART1 */
+        #define RTE_Drivers_USART2              /* Driver USART2 */
+        #define RTE_Drivers_USART3              /* Driver USART3 */
+        #define RTE_Drivers_USART4              /* Driver USART4 */
+        #define RTE_Drivers_USART5              /* Driver USART5 */
+        #define RTE_Drivers_USART6              /* Driver USART6 */
+        #define RTE_Drivers_USART7              /* Driver USART7 */
+        #define RTE_Drivers_USART8              /* Driver USART8 */
+        #define RTE_Drivers_USART9              /* Driver USART9 */
+        #define RTE_Drivers_USART10             /* Driver USART10 */
 /* Keil::CMSIS Driver:USB Host:High-speed:2.25 */
 #define RTE_Drivers_USBH1               /* Driver USBH1 */
 /* Keil::Device:STM32Cube Framework:Classic:1.8.1 */
@@ -85,6 +103,8 @@
 #define RTE_DEVICE_HAL_SPI
 /* Keil::Device:STM32Cube HAL:UART:1.8.1 */
 #define RTE_DEVICE_HAL_UART
+/* Keil::Device:STM32Cube HAL:USART:1.8.1 */
+#define RTE_DEVICE_HAL_USART
 /* Keil::Device:Startup:2.6.3 */
 #define RTE_DEVICE_STARTUP_STM32F4XX    /* Device Startup for STM32F4 */
 /* Segger.MDK-Pro::Graphics:CORE:6.32.3 */

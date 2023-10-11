@@ -23,6 +23,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "Board_LED.h"
+#include <stdio.h>
 
 #ifdef _RTE_
 #include "RTE_Components.h"             // Component selection
@@ -81,6 +82,7 @@ static void Error_Handler(void);
 
 int Init_Thread (void);
 int Init_GUIThread (void);
+int stdout_init (void);
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -109,6 +111,10 @@ int main(void)
   /* Add your application code here
      */
 	LED_Initialize();
+	stdout_init();
+	
+	printf("Hello Vives");
+	fflush(stdout);
 
 #ifdef RTE_CMSIS_RTOS2
   /* Initialize CMSIS-RTOS2 */

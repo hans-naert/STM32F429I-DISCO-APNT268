@@ -119,6 +119,11 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>EVENTREC_CNF</Key>
+          <Name>-l0 -a1 -s0 -f000000000000000000000000000000000000000000000000000000000000FF07000000000000000000000000000000000000000000000000000000000000FF07000000000000000000000000000000000000000000000000000000000000FF07000000000000000000000000000000000000000000000000000000000000FF00</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
           <Name>-L70 -Z23 -C0 -M0 -T1</Name>
         </SetRegEntry>
@@ -140,7 +145,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ST-LINKIII-KEIL_SWO</Key>
-          <Name>-U0671FF555052836687062346 -O206 -SF10000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP (ARM Core") -D00(2BA01477) -L00(0) -TO131075 -TC168000000 -TT10000000 -TP21 -TDS8053 -TDT0 -TDC1F -TIE1 -TIP1 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_2048.FLM -FS08000000 -FL0200000 -FP0($$Device:STM32F429ZITx$CMSIS\Flash\STM32F4xx_2048.FLM) -WA0 -WE0 -WVCE4 -WS2710 -WM0 -WP2</Name>
+          <Name>-U0671FF555052836687062346 -O206 -SF10000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP (ARM Core") -D00(2BA01477) -L00(0) -TO131074 -TC168000000 -TT10000000 -TP21 -TDS800D -TDT0 -TDC1F -TIE1 -TIP1 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_2048.FLM -FS08000000 -FL0200000 -FP0($$Device:STM32F429ZITx$CMSIS\Flash\STM32F4xx_2048.FLM) -WA0 -WE0 -WVCE4 -WS2710 -WM0 -WP2</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -170,22 +175,22 @@
         </Mm>
       </MemoryWindow1>
       <ScvdPack>
-        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\RTX\RTX5.scvd</Filename>
+        <Filename>C:\Users\hansn\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\RTX\RTX5.scvd</Filename>
         <Type>ARM.CMSIS.5.9.0</Type>
         <SubType>1</SubType>
       </ScvdPack>
       <ScvdPack>
-        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.7.2\EventRecorder.scvd</Filename>
+        <Filename>C:\Users\hansn\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.7.2\EventRecorder.scvd</Filename>
         <Type>Keil.ARM_Compiler.1.7.2</Type>
         <SubType>1</SubType>
       </ScvdPack>
       <ScvdPack>
-        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.16.0\FileSystem\FileSystem.scvd</Filename>
+        <Filename>C:\Users\hansn\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.16.0\FileSystem\FileSystem.scvd</Filename>
         <Type>Keil.MDK-Middleware.7.16.0</Type>
         <SubType>1</SubType>
       </ScvdPack>
       <ScvdPack>
-        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.16.0\USB\USB.scvd</Filename>
+        <Filename>C:\Users\hansn\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.16.0\USB\USB.scvd</Filename>
         <Type>Keil.MDK-Middleware.7.16.0</Type>
         <SubType>1</SubType>
       </ScvdPack>
@@ -319,11 +324,35 @@
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>7</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Touch_STMPE811.c</PathWithFileName>
+      <FilenameWithoutPath>Touch_STMPE811.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>8</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\stdout_USART.c</PathWithFileName>
+      <FilenameWithoutPath>stdout_USART.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
   </Group>
 
   <Group>
     <GroupName>::Board Support</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>1</RteFlg>
@@ -347,7 +376,7 @@
 
   <Group>
     <GroupName>::Compiler</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>1</RteFlg>
@@ -355,7 +384,7 @@
 
   <Group>
     <GroupName>::Device</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>1</RteFlg>
@@ -371,7 +400,7 @@
 
   <Group>
     <GroupName>::Graphics</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>1</RteFlg>

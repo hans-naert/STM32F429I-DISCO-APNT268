@@ -3,6 +3,10 @@
 #include "GUI.h"
 #include "DIALOG.h"
 
+#define ID_FRAMEWIN_0            (GUI_ID_USER + 0x00)
+#define ID_BUTTON_0            (GUI_ID_USER + 0x01)
+#define ID_MULTIEDIT_0           (GUI_ID_USER + 0x02)
+
 extern WM_HWIN CreateLogVIEWER(void);
 
 /*----------------------------------------------------------------------------
@@ -39,6 +43,9 @@ __NO_RETURN static void GUIThread (void *argument) {
 
 	//GUI_DispString("Hello Vives");
 	WM_HWIN hWin = CreateLogVIEWER();
+	WM_HWIN hItem = WM_GetDialogItem(hWin, ID_MULTIEDIT_0);
+  MULTIEDIT_SetText(hItem, "Singlethread");
+	
   while (1) {
     
     /* All GUI related activities might only be called from here */
