@@ -80,7 +80,7 @@ static void SystemClock_Config(void);
 static void Error_Handler(void);
 
 int Init_Thread (void);
-
+int Init_GUIThread (void);
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -117,6 +117,7 @@ int main(void)
   /* Create thread functions that start executing, 
   Example: osThreadNew(app_main, NULL, NULL); */
 	Init_Thread();
+	Init_GUIThread();
 
   /* Start thread execution */
   osKernelStart();
