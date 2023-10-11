@@ -1,4 +1,5 @@
-
+#include <stdio.h>
+#include <string.h>
 #include "cmsis_os2.h"
 #include "GUI.h"
 #include "DIALOG.h"
@@ -34,8 +35,41 @@ int Init_GUIThread (void) {
   return(0);
 }
 
+int busy = 0;
+int pause_status = 0;
+
+uint32_t cnt=0;
+
+void start()
+{
+	//busy=1
+	printf("start\n");
+	busy=1;
+}
+
+void pause()
+{
+	//busy=0, pause=1
+	printf("pause\n");
+	busy=0;
+	pause_status=1;
+}
+
+void stop() 
+{
+	//busy=0
+	printf("stop\n");
+	busy=0;
+	pause_status=0;
+}
+
+
 __NO_RETURN static void GUIThread (void *argument) {
   (void)argument;
+	uint32_t startTickCount=0;
+	uint32_t cnt_prev, cnt_pause=0;
+	int pause_prev=0;
+	int busy_prev=0;
 
   GUI_Init();           /* Initialize the Graphics Component */
 
@@ -48,10 +82,34 @@ __NO_RETURN static void GUIThread (void *argument) {
 	
   while (1) {
     
+		if((busy_prev==0)&&(busy==1))
+		{
+			if(pause_status==0)
+				cnt_pause=0;
+			startTickCount=osKernelGetTickCount();
+		}
+		
+		busy_prev=busy;
+		
+		if((pause_prev==0)&&(pause_status==1))
+			cnt_pause=cnt;
+		
+		pause_prev=pause_status;
+		
     /* All GUI related activities might only be called from here */
-
+		if(busy==1)
+			cnt=cnt_pause+(osKernelGetTickCount()-startTickCount)/1000;
+		
+		if(cnt!=cnt_prev)
+		{
+			cnt_prev=cnt;
+			char buf[20];
+			sprintf(buf,"time: %d",cnt);
+			MULTIEDIT_SetText(hItem, buf);
+		}
     GUI_Exec();         /* Execute all GUI jobs ... Return 0 if nothing was done. */
     GUI_X_ExecIdle();   /* Nothing left to do for the moment ... Idle processing */
 		GUI_TOUCH_Exec();
+		
   }
 }
