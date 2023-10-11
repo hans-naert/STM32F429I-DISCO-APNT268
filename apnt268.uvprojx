@@ -399,6 +399,11 @@
               <FileType>1</FileType>
               <FilePath>.\Thread.c</FilePath>
             </File>
+            <File>
+              <FileName>USBH_MSC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USBH_MSC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -408,7 +413,19 @@
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
+          <GroupName>::CMSIS Driver</GroupName>
+        </Group>
+        <Group>
+          <GroupName>::Compiler</GroupName>
+        </Group>
+        <Group>
           <GroupName>::Device</GroupName>
+        </Group>
+        <Group>
+          <GroupName>::File System</GroupName>
+        </Group>
+        <Group>
+          <GroupName>::USB</GroupName>
         </Group>
       </Groups>
     </Target>
@@ -418,6 +435,12 @@
     <apis>
       <api Capiversion="1.0.0" Cclass="Board Support" Cgroup="LED" exclusive="0">
         <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </api>
+      <api Capiversion="2.3.0" Cclass="CMSIS Driver" Cgroup="USB Host" exclusive="0">
+        <package name="CMSIS" schemaVersion="1.7.7" url="http://www.keil.com/pack/" vendor="ARM" version="5.9.0"/>
         <targetInfos>
           <targetInfo name="Target 1"/>
         </targetInfos>
@@ -448,7 +471,73 @@
           <targetInfo name="Target 1"/>
         </targetInfos>
       </component>
+      <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="Keil" Cversion="1.5.1" condition="Cortex-M Device">
+        <package name="ARM_Compiler" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="1.7.2"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="I/O" Csub="File" Cvariant="File System" Cvendor="Keil" Cversion="1.2.0" condition="ARMCC Cortex-M with File System">
+        <package name="ARM_Compiler" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="1.7.2"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="MDK-Plus" Cclass="File System" Cgroup="CORE" Cvariant="LFN Debug" Cvendor="Keil" Cversion="6.15.3" condition="CMSIS Core with RTOS and File System I/O and Event Recorder">
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="MDK-Plus" Cclass="File System" Cgroup="Drive" Csub="USB" Cvendor="Keil" Cversion="6.15.3" condition="File System and USB Host MSC" maxInstances="2">
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="CORE" Cvariant="Release" Cvendor="Keil" Cversion="6.16.1" condition="CMSIS Core with RTOS">
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Driver and Class Instance" maxInstances="4">
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Csub="CDC" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Instance and Host Driver">
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Csub="Custom Class" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Instance and Host Driver">
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Csub="HID" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Instance and Host Driver">
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Csub="MSC" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Instance and Host Driver and File System USB Drive">
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
       <component Capiversion="1.0.0" Cbundle="STM32F429I-Discovery" Cclass="Board Support" Cgroup="LED" Cvendor="Keil" Cversion="1.0.0" condition="STM32F4 HAL GPIO">
+        <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Capiversion="2.0" Cclass="CMSIS Driver" Cgroup="USB Host" Csub="High-speed" Cvendor="Keil" Cversion="2.25" condition="STM32F4 CMSIS_Driver USB1">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
           <targetInfo name="Target 1"/>
@@ -514,6 +603,14 @@
           <targetInfo name="Target 1"/>
         </targetInfos>
       </file>
+      <file attr="config" category="header" name="Config\EventRecorderConf.h" version="1.1.0">
+        <instance index="0">RTE\Compiler\EventRecorderConf.h</instance>
+        <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="Keil" Cversion="1.5.1" condition="Cortex-M Device"/>
+        <package name="ARM_Compiler" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="1.7.2"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
       <file attr="config" category="header" name="CMSIS\Driver\Config\RTE_Device.h" version="2.4.5">
         <instance index="0">RTE\Device\STM32F429ZITx\RTE_Device.h</instance>
         <component Capiversion="1.0.0" Cclass="Device" Cgroup="STM32Cube Framework" Csub="Classic" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 Framework Classic"/>
@@ -542,6 +639,70 @@
         <instance index="0">RTE\Device\STM32F429ZITx\system_stm32f4xx.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="2.6.3" condition="STM32F4 CMSIS"/>
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="FileSystem\Config\FS_Config.c" version="6.3.0">
+        <instance index="0">RTE\File_System\FS_Config.c</instance>
+        <component Cbundle="MDK-Plus" Cclass="File System" Cgroup="CORE" Cvariant="LFN Debug" Cvendor="Keil" Cversion="6.15.3" condition="CMSIS Core with RTOS and File System I/O and Event Recorder"/>
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="FileSystem\Config\FS_Config_USB.h" version="6.2.0">
+        <instance index="0">RTE\File_System\FS_Config_USB_0.h</instance>
+        <component Cbundle="MDK-Plus" Cclass="File System" Cgroup="Drive" Csub="USB" Cvendor="Keil" Cversion="6.15.3" condition="File System and USB Host MSC" maxInstances="2"/>
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="FileSystem\Config\FS_Debug.c" version="1.0.0">
+        <instance index="0">RTE\File_System\FS_Debug.c</instance>
+        <component Cbundle="MDK-Plus" Cclass="File System" Cgroup="CORE" Cvariant="LFN Debug" Cvendor="Keil" Cversion="6.15.3" condition="CMSIS Core with RTOS and File System I/O and Event Recorder"/>
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="USB\Config\USBH_Config.c" version="5.2.1">
+        <instance index="0">RTE\USB\USBH_Config_0.c</instance>
+        <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Driver and Class Instance" maxInstances="4"/>
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="USB\Config\USBH_Config_CDC.h" version="5.0.0">
+        <instance index="0">RTE\USB\USBH_Config_CDC.h</instance>
+        <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Csub="CDC" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Instance and Host Driver"/>
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="USB\Config\USBH_Config_CustomClass.h" version="5.0.0">
+        <instance index="0">RTE\USB\USBH_Config_CustomClass.h</instance>
+        <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Csub="Custom Class" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Instance and Host Driver"/>
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="USB\Config\USBH_Config_HID.h" version="5.1.0">
+        <instance index="0">RTE\USB\USBH_Config_HID.h</instance>
+        <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Csub="HID" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Instance and Host Driver"/>
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="USB\Config\USBH_Config_MSC.h" version="5.0.0">
+        <instance index="0">RTE\USB\USBH_Config_MSC.h</instance>
+        <component Cbundle="MDK-Pro" Cclass="USB" Cgroup="Host" Csub="MSC" Cvendor="Keil" Cversion="6.16.1" condition="USB Core and Host Instance and Host Driver and File System USB Drive"/>
+        <package name="MDK-Middleware" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="7.16.0"/>
         <targetInfos>
           <targetInfo name="Target 1"/>
         </targetInfos>

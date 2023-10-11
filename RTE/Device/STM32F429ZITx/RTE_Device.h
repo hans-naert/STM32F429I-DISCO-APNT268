@@ -2516,14 +2516,14 @@
 
 
 // <e> USB OTG High-speed
-#define RTE_USB_OTG_HS                  0
+#define RTE_USB_OTG_HS                  1
 
 //   <h> PHY (Physical Layer)
 
 //     <o> PHY Interface
 //       <0=>On-chip full-speed PHY
 //       <1=>External ULPI high-speed PHY
-#define RTE_USB_OTG_HS_PHY              1
+#define RTE_USB_OTG_HS_PHY              0
 
 //     <h> External ULPI Pins (UTMI+ Low Pin Interface)
 
@@ -2647,7 +2647,7 @@
 
 //   <e> Host [Driver_USBH1]
 //   <i> Configuration settings for Driver_USBH1 in component ::CMSIS Driver:USB Host
-#define RTE_USB_OTG_HS_HOST             0
+#define RTE_USB_OTG_HS_HOST             1
 
 //     <e> VBUS Power On/Off Pin
 //     <i> Configure Pin for driving VBUS
@@ -2663,7 +2663,7 @@
 #define RTE_OTG_HS_VBUS_PIN             1
 #define RTE_OTG_HS_VBUS_ACTIVE          0
 #define RTE_OTG_HS_VBUS_PORT            GPIO_PORT(2)
-#define RTE_OTG_HS_VBUS_BIT             2
+#define RTE_OTG_HS_VBUS_BIT             4
 
 //     <e> Overcurrent Detection Pin
 //     <i> Configure Pin for overcurrent detection
@@ -2676,7 +2676,7 @@
 //       <o3> Bit <0-15>
 //       <i>  Selects Port Bit
 //     </e>
-#define RTE_OTG_HS_OC_PIN               0
+#define RTE_OTG_HS_OC_PIN               1
 #define RTE_OTG_HS_OC_ACTIVE            0
 #define RTE_OTG_HS_OC_PORT              GPIO_PORT(2)
 #define RTE_OTG_HS_OC_BIT               5
