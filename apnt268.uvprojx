@@ -409,6 +409,11 @@
               <FileType>5</FileType>
               <FilePath>.\USBH_MSC.h</FilePath>
             </File>
+            <File>
+              <FileName>GUI_SingleThread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GUI_SingleThread.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
