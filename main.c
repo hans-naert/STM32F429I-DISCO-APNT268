@@ -77,6 +77,7 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority) {
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 static void Error_Handler(void);
+extern int Init_Thread(void);
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -105,6 +106,7 @@ int main(void)
 
   /* Add your application code here
      */
+	Init_Thread();
 
 #ifdef RTE_CMSIS_RTOS2
   /* Initialize CMSIS-RTOS2 */
