@@ -1,7 +1,9 @@
 
 #include "cmsis_os2.h"
 #include "GUI.h"
+#include "DIALOG.h"
 
+extern WM_HWIN CreateLogViewer(void);
 /*----------------------------------------------------------------------------
  *      GUIThread: GUI Thread for Single-Task Execution Model
  *---------------------------------------------------------------------------*/
@@ -33,7 +35,8 @@ __NO_RETURN static void GUIThread (void *argument) {
   GUI_Init();           /* Initialize the Graphics Component */
 
   /* Add GUI setup code here */
-	GUI_DispString("Hello World!");
+	//GUI_DispString("Hello World!");
+	CreateLogViewer();
 
   while (1) {
     

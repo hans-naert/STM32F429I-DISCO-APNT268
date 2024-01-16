@@ -20,6 +20,10 @@
 #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
         #define RTE_CMSIS_RTOS2_RTX5            /* CMSIS-RTOS2 Keil RTX5 */
         #define RTE_CMSIS_RTOS2_RTX5_SOURCE     /* CMSIS-RTOS2 Keil RTX5 Source */
+/* Keil::CMSIS Driver:I2C@2.12 */
+#define RTE_Drivers_I2C1                /* Driver I2C1 */
+        #define RTE_Drivers_I2C2                /* Driver I2C2 */
+        #define RTE_Drivers_I2C3                /* Driver I2C3 */
 /* Keil::CMSIS Driver:SPI@2.18 */
 #define RTE_Drivers_SPI1                /* Driver SPI1 */
         #define RTE_Drivers_SPI2                /* Driver SPI2 */
@@ -80,6 +84,8 @@
 
 /* Segger::Graphics&MDK-Pro:CORE@6.32.3 */
 #define RTE_Graphics_Core               /* Graphics Core */
+/* Segger::Graphics&MDK-Pro:Input Device:Touchscreen@6.32.3 */
+#define RTE_Graphics_Touchscreen        /* Graphics Input Device Touchscreen */
 
 
 #endif /* RTE_COMPONENTS_H */
