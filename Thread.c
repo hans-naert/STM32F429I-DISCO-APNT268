@@ -1,5 +1,9 @@
+#include <stdio.h>
 #include "cmsis_os2.h"                          // CMSIS RTOS header file
 #include "Board_LED.h"                  // Board Support:LED 
+#include "USBH_MSC.h"                         // Access storage via USB Host
+
+char fbuf[200] = { 0 };
 
 /*----------------------------------------------------------------------------
  *      Thread 1 'Thread_Name': Sample thread
@@ -21,12 +25,24 @@ int Init_Thread (void) {
 }
  
 void Thread (void *argument) {
+  static unsigned int result;
+  static FILE *f;
+
 	
 	Init_Timers();
-	LED_Initialize();
- 
+	LED_Initialize(); 
+  USBH_Initialize (0);
+	
   while (1) {
-    ; // Insert thread code here...
-    osThreadYield();                            // suspend thread
+    result = USBH_MSC_DriveMount ("U0:");
+    if (result == USBH_MSC_OK)  {
+      f = fopen ("Test.txt", "r");
+      if (f) {
+        fread (fbuf, sizeof (fbuf), 1, f);
+        fclose (f);
+      }
+    }
+    osDelay (1000);
   }
+
 }

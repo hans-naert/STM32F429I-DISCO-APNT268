@@ -399,6 +399,16 @@
               <FileType>1</FileType>
               <FilePath>.\Timer.c</FilePath>
             </File>
+            <File>
+              <FileName>USBH_MSC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USBH_MSC.c</FilePath>
+            </File>
+            <File>
+              <FileName>USBH_MSC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\USBH_MSC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
