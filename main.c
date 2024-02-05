@@ -77,7 +77,7 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority) {
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 static void Error_Handler(void);
-
+extern int Init_Thread (void);
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -112,6 +112,7 @@ int main(void)
 
   /* Create thread functions that start executing, 
   Example: osThreadNew(app_main, NULL, NULL); */
+	Init_Thread();
 
   /* Start thread execution */
   osKernelStart();
