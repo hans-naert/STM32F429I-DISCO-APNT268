@@ -1,4 +1,5 @@
 #include "cmsis_os2.h"                          // CMSIS RTOS header file
+#include "Board_LED.h"                  // Board Support:LED
  
 /*----------------------------------------------------------------------------
  *      Thread 1 'Thread_Name': Sample thread
@@ -21,6 +22,7 @@ int Init_Thread (void) {
  
 void Thread (void *argument) {
  	Init_Timers();
+	LED_Initialize();
   while (1) {
     ; // Insert thread code here...
     osThreadYield();                            // suspend thread
