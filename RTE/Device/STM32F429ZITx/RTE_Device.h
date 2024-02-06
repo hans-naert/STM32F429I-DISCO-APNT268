@@ -1676,10 +1676,10 @@
 
 // <e> SPI5 (Serial Peripheral Interface 5) [Driver_SPI5]
 // <i> Configuration settings for Driver_SPI5 in component ::CMSIS Driver:SPI
-#define RTE_SPI5                        0
+#define RTE_SPI5                        1
 
 //   <o> SPI5_MISO Pin <0=>Not Used <1=>PA12 <2=>PE5 <3=>PE13 <4=>PF8 <5=>PH7
-#define RTE_SPI5_MISO_PORT_ID           0
+#define RTE_SPI5_MISO_PORT_ID           4
 #if    (RTE_SPI5_MISO_PORT_ID == 0)
 #define RTE_SPI5_MISO                   0
 #elif  (RTE_SPI5_MISO_PORT_ID == 1)
@@ -1707,7 +1707,7 @@
 #endif
 
 //   <o> SPI5_MOSI Pin <0=>Not Used <1=>PA10 <2=>PB8 <3=>PE6 <4=>PE14 <5=>PF9 <6=>PF11
-#define RTE_SPI5_MOSI_PORT_ID           0
+#define RTE_SPI5_MOSI_PORT_ID           5
 #if    (RTE_SPI5_MOSI_PORT_ID == 0)
 #define RTE_SPI5_MOSI                   0
 #elif  (RTE_SPI5_MOSI_PORT_ID == 1)
@@ -1739,7 +1739,7 @@
 #endif
 
 //   <o> SPI5_SCK Pin <0=>PB0 <1=>PE2 <2=>PE12 <3=>PF7 <4=>PH6
-#define RTE_SPI5_SCL_PORT_ID            0
+#define RTE_SPI5_SCL_PORT_ID            3
 #if    (RTE_SPI5_SCL_PORT_ID == 0)
 #define RTE_SPI5_SCL_PORT               GPIOB
 #define RTE_SPI5_SCL_BIT                0
@@ -2516,14 +2516,14 @@
 
 
 // <e> USB OTG High-speed
-#define RTE_USB_OTG_HS                  0
+#define RTE_USB_OTG_HS                  1
 
 //   <h> PHY (Physical Layer)
 
 //     <o> PHY Interface
 //       <0=>On-chip full-speed PHY
 //       <1=>External ULPI high-speed PHY
-#define RTE_USB_OTG_HS_PHY              1
+#define RTE_USB_OTG_HS_PHY              0
 
 //     <h> External ULPI Pins (UTMI+ Low Pin Interface)
 
@@ -2647,7 +2647,7 @@
 
 //   <e> Host [Driver_USBH1]
 //   <i> Configuration settings for Driver_USBH1 in component ::CMSIS Driver:USB Host
-#define RTE_USB_OTG_HS_HOST             0
+#define RTE_USB_OTG_HS_HOST             1
 
 //     <e> VBUS Power On/Off Pin
 //     <i> Configure Pin for driving VBUS
@@ -2663,7 +2663,7 @@
 #define RTE_OTG_HS_VBUS_PIN             1
 #define RTE_OTG_HS_VBUS_ACTIVE          0
 #define RTE_OTG_HS_VBUS_PORT            GPIO_PORT(2)
-#define RTE_OTG_HS_VBUS_BIT             2
+#define RTE_OTG_HS_VBUS_BIT             4
 
 //     <e> Overcurrent Detection Pin
 //     <i> Configure Pin for overcurrent detection
@@ -2676,7 +2676,7 @@
 //       <o3> Bit <0-15>
 //       <i>  Selects Port Bit
 //     </e>
-#define RTE_OTG_HS_OC_PIN               0
+#define RTE_OTG_HS_OC_PIN               1
 #define RTE_OTG_HS_OC_ACTIVE            0
 #define RTE_OTG_HS_OC_PORT              GPIO_PORT(2)
 #define RTE_OTG_HS_OC_BIT               5
