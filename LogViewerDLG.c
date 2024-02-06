@@ -117,6 +117,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
+				hItem = WM_GetDialogItem(pMsg->hWin, ID_MULTIEDIT_0); 
+				MULTIEDIT_SetTextColor (hItem, 1, GUI_BLACK);
+				MULTIEDIT_SetText(hItem, fbuf);
         // USER END
         break;
       case WM_NOTIFICATION_RELEASED:
