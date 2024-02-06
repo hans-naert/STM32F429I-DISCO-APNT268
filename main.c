@@ -22,6 +22,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "EventRecorder.h"              // CMSIS-View:Event Recorder&&DAP
+
 
 #ifdef _RTE_
 #include "RTE_Components.h"             // Component selection
@@ -106,9 +108,11 @@ int main(void)
   /* Add your application code here
      */
 
+
 #ifdef RTE_CMSIS_RTOS2
   /* Initialize CMSIS-RTOS2 */
   osKernelInitialize ();
+	HAL_Delay(1000);
 
   /* Create thread functions that start executing, 
   Example: osThreadNew(app_main, NULL, NULL); */

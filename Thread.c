@@ -21,8 +21,10 @@ int Init_Thread (void) {
 }
  
 void Thread (void *argument) {
- 	Init_Timers();
-	LED_Initialize();
+	
+	LED_Initialize(); 	
+	Init_Timers();
+	
   while (1) {
     ; // Insert thread code here...
     osThreadYield();                            // suspend thread

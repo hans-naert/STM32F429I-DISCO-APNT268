@@ -230,7 +230,7 @@
 //     <1=> Privileged mode
 //   <i> Default: Unprivileged mode
 #ifndef OS_PRIVILEGE_MODE
-#define OS_PRIVILEGE_MODE           0
+#define OS_PRIVILEGE_MODE           1
 #endif
  
 // </h>
@@ -426,7 +426,7 @@
 //   <e>Global Initialization
 //   <i> Initialize Event Recorder during 'osKernelInitialize'.
 #ifndef OS_EVR_INIT
-#define OS_EVR_INIT                 0
+#define OS_EVR_INIT                 1
 #endif
  
 //     <q>Start recording
@@ -524,7 +524,7 @@
 //         <o.3>Detailed operation events
 //       </e>
 #ifndef OS_EVR_TIMER_LEVEL
-#define OS_EVR_TIMER_LEVEL          0x81U
+#define OS_EVR_TIMER_LEVEL          0x8FU
 #endif
  
 //       <e.7>Mutex
