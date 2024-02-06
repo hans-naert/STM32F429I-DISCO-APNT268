@@ -23,7 +23,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "EventRecorder.h"              // CMSIS-View:Event Recorder&&DAP
-
+#include "Driver_USART.h"               // CMSIS Driver:USART
+#include <stdio.h>
 
 #ifdef _RTE_
 #include "RTE_Components.h"             // Component selection
@@ -81,6 +82,29 @@ static void SystemClock_Config(void);
 static void Error_Handler(void);
 extern int Init_Thread (void);
 /* Private functions ---------------------------------------------------------*/
+/* USART Driver */
+extern ARM_DRIVER_USART Driver_USART1;
+ 
+void Initialize_USART(void)
+{
+	 static ARM_DRIVER_USART * USARTdrv = &Driver_USART1;
+	/*Initialize the USART driver */
+    USARTdrv->Initialize(0);
+    /*Power up the USART peripheral */
+    USARTdrv->PowerControl(ARM_POWER_FULL);
+    /*Configure the USART to 115200 Bits/sec */
+    USARTdrv->Control(ARM_USART_MODE_ASYNCHRONOUS |
+                      ARM_USART_DATA_BITS_8 |
+                      ARM_USART_PARITY_NONE |
+                      ARM_USART_STOP_BITS_1 |
+                      ARM_USART_FLOW_CONTROL_NONE, 115200);
+     
+    /* Enable Receiver and Transmitter lines */
+    USARTdrv->Control (ARM_USART_CONTROL_TX, 1);
+    USARTdrv->Control (ARM_USART_CONTROL_RX, 1);
+}
+
+extern char fbuf[200];
 
 /**
   * @brief  Main program
@@ -107,13 +131,18 @@ int main(void)
 
   /* Add your application code here
      */
+	Initialize_USART();
 
 
 #ifdef RTE_CMSIS_RTOS2
   /* Initialize CMSIS-RTOS2 */
   osKernelInitialize ();
 	HAL_Delay(1000);
-
+	printf("Hello Vives!\n");
+	printf("Give your name:\n");
+	scanf("%s",fbuf);
+	printf("\nYour name is %s\n",fbuf);
+	
   /* Create thread functions that start executing, 
   Example: osThreadNew(app_main, NULL, NULL); */
 	Init_Thread();
