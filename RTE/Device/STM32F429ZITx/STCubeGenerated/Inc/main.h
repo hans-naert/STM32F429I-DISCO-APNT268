@@ -57,6 +57,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define USB_OTG_HS_VBUS_Power_Pin GPIO_PIN_4
+#define USB_OTG_HS_VBUS_Power_GPIO_Port GPIOC
+#define USB_OTG_HS_Overcurrent_Pin GPIO_PIN_5
+#define USB_OTG_HS_Overcurrent_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 
