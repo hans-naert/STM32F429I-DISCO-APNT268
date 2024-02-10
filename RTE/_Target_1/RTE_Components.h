@@ -23,6 +23,10 @@
 #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
         #define RTE_CMSIS_RTOS2_RTX5            /* CMSIS-RTOS2 Keil RTX5 */
         #define RTE_CMSIS_RTOS2_RTX5_SOURCE     /* CMSIS-RTOS2 Keil RTX5 Source */
+/* Keil::CMSIS Driver:I2C@2.12 */
+#define RTE_Drivers_I2C1                /* Driver I2C1 */
+        #define RTE_Drivers_I2C2                /* Driver I2C2 */
+        #define RTE_Drivers_I2C3                /* Driver I2C3 */
 /* Keil::CMSIS Driver:SPI@2.18 */
 #define RTE_Drivers_SPI1                /* Driver SPI1 */
         #define RTE_Drivers_SPI2                /* Driver SPI2 */
@@ -41,20 +45,30 @@
 #define RTE_DEVICE_HAL_COMMON
 /* Keil::Device:STM32Cube HAL:Cortex@1.8.1 */
 #define RTE_DEVICE_HAL_CORTEX
+/* Keil::Device:STM32Cube HAL:DMA2D@1.8.1 */
+#define RTE_DEVICE_HAL_DMA2D
 /* Keil::Device:STM32Cube HAL:DMA@1.8.1 */
 #define RTE_DEVICE_HAL_DMA
 /* Keil::Device:STM32Cube HAL:GPIO@1.8.1 */
 #define RTE_DEVICE_HAL_GPIO
 /* Keil::Device:STM32Cube HAL:HCD@1.8.1 */
 #define RTE_DEVICE_HAL_HCD
+/* Keil::Device:STM32Cube HAL:I2C@1.8.1 */
+#define RTE_DEVICE_HAL_I2C
+/* Keil::Device:STM32Cube HAL:LTDC@1.8.1 */
+#define RTE_DEVICE_HAL_LTDC
 /* Keil::Device:STM32Cube HAL:PWR@1.8.1 */
 #define RTE_DEVICE_HAL_PWR
 /* Keil::Device:STM32Cube HAL:RCC@1.8.1 */
 #define RTE_DEVICE_HAL_RCC
+/* Keil::Device:STM32Cube HAL:SDRAM@1.8.1 */
+#define RTE_DEVICE_HAL_SDRAM
 /* Keil::Device:STM32Cube HAL:SPI@1.8.1 */
 #define RTE_DEVICE_HAL_SPI
 /* Keil::Device:STM32Cube HAL:TIM@1.8.1 */
 #define RTE_DEVICE_HAL_TIM
+/* Keil::Device:STM32Cube HAL:UART@1.8.1 */
+#define RTE_DEVICE_HAL_UART
 /* Keil::Device:Startup@2.6.3 */
 #define RTE_DEVICE_STARTUP_STM32F4XX    /* Device Startup for STM32F4 */
 /* Keil::File System&MDK-Pro:CORE&LFN@6.16.6 */
@@ -72,6 +86,8 @@
 /* Keil::USB&MDK-Pro:Host@6.17.0 */
 #define RTE_USB_Host_0                  /* USB Host 0 */
 
+/* Segger::Graphics&MDK-Pro:CORE@6.32.3 */
+#define RTE_Graphics_Core               /* Graphics Core */
 
 
 #endif /* RTE_COMPONENTS_H */
