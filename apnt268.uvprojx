@@ -423,6 +423,9 @@
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
+          <GroupName>::CMSIS-View</GroupName>
+        </Group>
+        <Group>
           <GroupName>::Device</GroupName>
         </Group>
       </Groups>
@@ -464,6 +467,12 @@
       </api>
     </apis>
     <components>
+      <component Cclass="CMSIS-View" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="ARM" Cversion="1.5.3" condition="EventRecorder">
+        <package name="CMSIS-View" schemaVersion="1.7.25" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="6.0.0" condition="ARMv6_7_8-M Device">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
@@ -532,6 +541,14 @@
       </component>
     </components>
     <files>
+      <file attr="config" category="header" name="EventRecorder\Config\EventRecorderConf.h" version="1.1.0">
+        <instance index="0">RTE\CMSIS-View\EventRecorderConf.h</instance>
+        <component Cclass="CMSIS-View" Cgroup="Event Recorder" Cvariant="DAP" Cvendor="ARM" Cversion="1.5.3" condition="EventRecorder"/>
+        <package name="CMSIS-View" schemaVersion="1.7.25" url="https://www.keil.com/pack/" vendor="ARM" version="1.1.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
       <file attr="config" category="source" name="Config\RTX_Config.c" version="5.2.0">
         <instance index="0">RTE\CMSIS\RTX_Config.c</instance>
         <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.8.0" condition="RTX5"/>

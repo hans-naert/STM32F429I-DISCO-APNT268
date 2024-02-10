@@ -16,6 +16,9 @@
  */
 #define CMSIS_device_header "stm32f4xx.h"
 
+/* ARM::CMSIS-View:Event Recorder&DAP@1.5.3 */
+#define RTE_CMSIS_View_EventRecorder
+        #define RTE_CMSIS_View_EventRecorder_DAP
 /* ARM::CMSIS:RTOS2:Keil RTX5&Source@5.8.0 */
 #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
         #define RTE_CMSIS_RTOS2_RTX5            /* CMSIS-RTOS2 Keil RTX5 */
