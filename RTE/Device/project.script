@@ -1,0 +1,7 @@
+load STM32F429ZITx 
+project name STCubeGenerated 
+project toolchain "MDK-ARM V5" 
+project path "D:\projecten\IoT-Systems\voorbereiding\APNT268-CUBEMX\RTE\Device\STM32F429ZITx\" 
+set tpl_path "C:\Users\u0081767\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\MDK\CubeMX" 
+set dest_path "STM32F429ZITx" 
+SetCopyLibrary  "copy as reference"
