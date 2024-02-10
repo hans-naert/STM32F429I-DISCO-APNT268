@@ -1,5 +1,6 @@
 #include "cmsis_os2.h"                          // CMSIS RTOS header file
- 
+#include "Board_LED.h"                  // Board Support:LED
+  
 /*----------------------------------------------------------------------------
  *      Timer: Sample timer functions
  *---------------------------------------------------------------------------*/
@@ -7,6 +8,7 @@
 /*----- One-Shoot Timer Example -----*/
 osTimerId_t tim_id1;                            // timer id
 static uint32_t exec1;                          // argument for the timer call back function
+static int timer_cnt = 0;
 
 // One-Shoot Timer Function
 static void Timer1_Callback (void const *arg) {
@@ -20,6 +22,10 @@ static uint32_t exec2;                          // argument for the timer call b
 // Periodic Timer Function
 static void Timer2_Callback (void const *arg) {
   // add user code here
+	timer_cnt++;
+	if (timer_cnt & 1) LED_On (0);
+	else LED_Off(0);
+
 }
  
 // Example: Create and Start timers
