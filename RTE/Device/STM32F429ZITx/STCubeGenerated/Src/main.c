@@ -21,6 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "cmsis_os2.h"                  // CMSIS:RTOS2
 
 /* USER CODE END Includes */
 
@@ -49,7 +50,7 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-
+extern int Init_Thread (void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -86,6 +87,13 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+	
+	osKernelInitialize();
+	
+	Init_Thread();
+	
+	osKernelStart();
+	
 
   /* USER CODE END 2 */
 
