@@ -164,7 +164,7 @@ can be set here.
 //
 // Orientation of layer 0. Should be one of the above defined display orientations.
 //
-#define ORIENTATION_0 ROTATION_CW //ROTATION_0
+#define ORIENTATION_0 ROTATION_0 //ROTATION_CW
 
 /*********************************************************************
 *
