@@ -81,6 +81,8 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority) {
 static void SystemClock_Config(void);
 static void Error_Handler(void);
 extern int Init_Thread (void);
+extern int Init_Thread1 (void);
+int Init_Semaphore (void);
 /* Private functions ---------------------------------------------------------*/
 /* USART Driver */
 extern ARM_DRIVER_USART Driver_USART1;
@@ -139,13 +141,15 @@ int main(void)
   osKernelInitialize ();
 	HAL_Delay(1000);
 	printf("Hello Vives!\n");
-	printf("Give your name:\n");
+	/*printf("Give your name:\n");
 	scanf("%s",fbuf);
-	printf("\nYour name is %s\n",fbuf);
+	printf("\nYour name is %s\n",fbuf);*/
 	
   /* Create thread functions that start executing, 
   Example: osThreadNew(app_main, NULL, NULL); */
 	Init_Thread();
+	Init_Thread1();
+	Init_Semaphore();
 
   /* Start thread execution */
   osKernelStart();
