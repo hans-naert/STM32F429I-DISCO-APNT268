@@ -2,6 +2,7 @@
 #include "cmsis_os2.h"                          // CMSIS RTOS header file
  
 extern volatile int a;
+extern osSemaphoreId_t sid_Semaphore;                  // semaphore id
 
 /*----------------------------------------------------------------------------
  *      Thread 1 'Thread_Name': Sample thread
@@ -24,9 +25,17 @@ int Init_Thread1 (void) {
 void Thread1 (void *argument) {
  
    for(int i=0; i<100;i++) {
+		if(osSemaphoreAcquire(sid_Semaphore, osWaitForever)!=osOK)
+		{
+			printf("error\n");
+			while(1)
+				;
+		}
+		
 		int b=a;
 		osThreadYield(); 
 		b++;
+		 
 		
     ; // Insert thread code here...	
 		
@@ -44,9 +53,9 @@ void Thread1 (void *argument) {
         break;
     }
  */
-   
-		a=b; 
-		osThreadYield();                                    // suspend thread
+    osThreadYield();                                    // suspend thread
+		a=b;
+		osSemaphoreRelease(sid_Semaphore); 
   }
 	
 	osDelay(1000);
