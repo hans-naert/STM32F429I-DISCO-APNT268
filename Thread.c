@@ -8,6 +8,10 @@
 char fbuf[200] = { 0 };
 extern int Init_Timers (void);
 extern int Init_GUIThread (void); 
+extern int Init_Thread1 (void);
+extern int Init_Thread2 (void);
+extern int Init_Semaphore (void);
+int sum=0;
 
 /*----------------------------------------------------------------------------
  *      Thread 1 'Thread_Name': Sample thread
@@ -37,6 +41,12 @@ void Thread (void *argument) {
 	USBH_Initialize(0);
 	BSP_SDRAM_Init();
 	Init_GUIThread();
+	Init_Semaphore();
+	Init_Thread2();
+	Init_Thread1();
+	
+	osDelay(1000);
+	printf("sum is %d\n",sum);
  
   while (1) {
     result = USBH_MSC_DriveMount ("U0:");

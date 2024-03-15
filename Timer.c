@@ -8,7 +8,7 @@
 /*----- One-Shoot Timer Example -----*/
 osTimerId_t tim_id1;                            // timer id
 static uint32_t exec1;                          // argument for the timer call back function
-static int timer_cnt = 0;
+int timer_cnt = 0;
 
 // One-Shoot Timer Function
 static void Timer1_Callback (void const *arg) {

@@ -2,8 +2,21 @@
 #include "cmsis_os2.h"
 #include "GUI.h"
 #include "DIALOG.h"
+#include <stdio.h>
 
 extern WM_HWIN CreateLogViewer(void);
+
+extern osTimerId_t tim_id2;  
+
+extern int timer_cnt;
+
+#define ID_FRAMEWIN_0    (GUI_ID_USER + 0x00)
+#define ID_MULTIEDIT_0    (GUI_ID_USER + 0x01)
+#define ID_BUTTON_0    (GUI_ID_USER + 0x02)
+#define ID_BUTTON_1    (GUI_ID_USER + 0x03)
+#define ID_BUTTON_2    (GUI_ID_USER + 0x04)
+#define ID_BUTTON_3    (GUI_ID_USER + 0x05)
+#define ID_TEXT_0    (GUI_ID_USER + 0x06)
 
 /*----------------------------------------------------------------------------
  *      GUIThread: GUI Thread for Single-Task Execution Model
@@ -30,6 +43,34 @@ int Init_GUIThread (void) {
   return(0);
 }
 
+int start()
+{
+	printf("start");
+	fflush(stdout);
+	osStatus_t status;
+	status=osTimerStart(tim_id2,1000);
+	if(status != osOK)
+		return -1;
+	
+	return 0;
+}
+
+int stop()
+{
+	
+	osStatus_t status;
+	status=osTimerStop(tim_id2);
+	if(status != osOK)
+		return -1;
+	return 0;
+}
+
+int pause()
+{
+	return 0;
+}
+
+
 __NO_RETURN static void GUIThread (void *argument) {
   (void)argument;
 
@@ -37,10 +78,15 @@ __NO_RETURN static void GUIThread (void *argument) {
 
   /* Add GUI setup code here */
 	//GUI_DispString("Hello World!");
-	CreateLogViewer();
-
+	WM_HWIN hWin=CreateLogViewer();
+  WM_HWIN hItem=WM_GetDialogItem(hWin,ID_TEXT_0);
+	
+	
   while (1) {
-    
+    char buf[20];
+		sprintf(buf,"%8d",timer_cnt);
+		TEXT_SetText(hItem,buf);
+		
     /* All GUI related activities might only be called from here */
 
 		GUI_TOUCH_Exec();
