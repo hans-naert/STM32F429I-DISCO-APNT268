@@ -29,9 +29,9 @@
 *
 **********************************************************************
 */
-#define ID_FRAMEWIN_0            (GUI_ID_USER + 0x00)
-#define ID_MULTIEDIT_0           (GUI_ID_USER + 0x01)
-#define ID_BUTTON_0           (GUI_ID_USER + 0x02)
+#define ID_FRAMEWIN_0     (GUI_ID_USER + 0x00)
+#define ID_MULTIEDIT_0     (GUI_ID_USER + 0x01)
+#define ID_BUTTON_0     (GUI_ID_USER + 0x02)
 
 
 // USER START (Optionally insert additional defines)
@@ -53,8 +53,8 @@
 */
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { FRAMEWIN_CreateIndirect, "LogViewer", ID_FRAMEWIN_0, 0, 0, 240, 320, 0, 0x0, 0 },
-  { MULTIEDIT_CreateIndirect, "Multiedit", ID_MULTIEDIT_0, 12, 13, 198, 208, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "Update", ID_BUTTON_0, 28, 242, 175, 39, 0, 0x0, 0 },
+  { MULTIEDIT_CreateIndirect, "Multiedit", ID_MULTIEDIT_0, 13, 89, 81, 47, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "Update", ID_BUTTON_0, 29, 242, 53, 39, 0, 0x0, 0 },
   // USER START (Optionally insert additional widgets)
   // USER END
 };
@@ -135,6 +135,14 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     }
     break;
   // USER START (Optionally insert additional message handling)
+		case WM_PAINT:  // This event is triggered when the window needs to be drawn
+    // Set the color and draw the rectangle
+			 static GUI_RECT Rect = {30, 30, 150, 100};
+			 static int count=0;
+			 count++;
+	     GUI_SetColor(GUI_RED);
+       GUI_FillRect(Rect.x0, Rect.y0, Rect.x1, 65+(count/100)%35);
+       break;
   // USER END
   default:
     WM_DefaultProc(pMsg);
